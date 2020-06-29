@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
-    tools:context=".activity_login"
+    tools:context=".LoginActivity"
     >
 
 <androidx.appcompat.widget.AppCompatImageView
@@ -30,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            android:id="@+id/txtUsername"
             android:ems="10"
             android:inputType="text"
             android:textSize="16sp"
@@ -48,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
+            android:id="@+id/txtPassword"
             android:ems="10"
             android:inputType="textPassword"
             android:textSize="16sp"
@@ -58,6 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Forget Password?"
+            android:id="@+id/lblForgetPassword"
             android:textColorHint="#ccc"
             android:textSize="14sp"
             android:layout_marginBottom="20sp"
@@ -68,6 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="Login"
+        android:id="@+id/btnLogin"
         android:textColor="#ffff"
         android:textSize="18dp"
         android:background="@drawable/buttonshap"> </Button>
