@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.muxad.app.feesystem.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_add_student"
+        android:name="com.muxad.app.feesystem.AddStudentFragment"
+        android:label="@string/menu_add_student"
+        tools:layout="@layout/fragment_add_student" />
+
+    <fragment
+        android:id="@+id/nav_add_batch"
+        android:name="com.muxad.app.feesystem.AddBatchFragment"
+        android:label="@string/menu_add_batch"
+        tools:layout="@layout/fragment_add_batch" />
+
+    <fragment
+        android:id="@+id/nav_add_programme"
+        android:name="com.muxad.app.feesystem.AddProgrammeFragment"
+        android:label="@string/menu_add_programme"
+        tools:layout="@layout/fragment_add_programme" />
+</navigation>
