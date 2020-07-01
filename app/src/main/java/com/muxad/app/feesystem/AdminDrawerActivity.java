@@ -78,9 +78,6 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
 
     @Override
     public void onButtonSelected() {
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.nav_host_fragment, new HomeFragment());
-        fragmentTransaction.commit();
+
     }
 }
