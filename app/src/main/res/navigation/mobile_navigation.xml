@@ -10,6 +10,16 @@
         android:name="com.muxad.app.feesystem.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_add_fee"
+        android:name="com.muxad.app.feesystem.AddFeeFragment"
+        android:label="@string/menu_add_fee"
+        tools:layout="@layout/fragment_add_fee" />
+    <fragment
+        android:id="@+id/nav_mark_attendance"
+        android:name="com.muxad.app.feesystem.AddAttendanceFragment"
+        android:label="@string/menu_mark_attendance"
+        tools:layout="@layout/fragment_add_attendance" />
 
     <fragment
         android:id="@+id/nav_add_student"

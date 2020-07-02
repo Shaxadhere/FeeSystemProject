@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FMS</string>
+    <string name="app_name">Fee Management System</string>
 
     <string name="title_activity_home">HomeActivity</string>
     <string name="tab_text_1">Fee Details</string>
@@ -17,6 +17,8 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
+    <string name="menu_mark_attendance">Mark Attendance</string>
+    <string name="menu_add_fee">Add Fee</string>
     <string name="menu_add_student">Add Student</string>
     <string name="menu_add_batch">Add Batch</string>
     <string name="menu_add_programme">Add Programme</string>

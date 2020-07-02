@@ -12,7 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class AdminDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.onFragmentBtnSelected {
+public class AdminDrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -24,6 +24,7 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle(R.string.app_name);
         setContentView(R.layout.activity_admin_drawer);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -52,32 +53,45 @@ public class AdminDrawerActivity extends AppCompatActivity implements Navigation
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.nav_host_fragment, new HomeFragment());
                 fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
+                break;
+            case R.id.nav_add_fee:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, new AddFeeFragment());
+                fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
+                break;
+            case R.id.nav_mark_attendance:
+                fragmentManager = getSupportFragmentManager();
+                fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, new AddAttendanceFragment());
+                fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.nav_add_student:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.nav_host_fragment, new AddStudentFragment());
                 fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.nav_add_batch:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.nav_host_fragment, new AddBatchFragment());
                 fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
                 break;
             case R.id.nav_add_programme:
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.nav_host_fragment, new AddProgrammeFragment());
                 fragmentTransaction.commit();
+                drawerLayout.closeDrawers();
                 break;
 
         }
         return true;
-    }
-
-    @Override
-    public void onButtonSelected() {
-
     }
 }
