@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgmain"
-    tools:context=".ForgotPasswordActivity">
+    tools:context=".LoginCheckActivity">
 
 
 
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset Password"
+        android:text="LOG IN"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:fontFamily="casual"
@@ -34,14 +34,14 @@
         android:layout_marginStart="64dp"
         android:layout_marginTop="185dp"
         android:fontFamily="casual"
-        android:text="Enter your username to continue"
+        android:text="Continue onto the FMS"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
 
     <androidx.cardview.widget.CardView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="275dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         app:cardElevation="10dp">
@@ -49,11 +49,10 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            android:id="@+id/txtUsername"
-            android:inputType="text"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
             android:drawablePadding="8dp"
-            android:drawableStart="@drawable/ic_baseline_person_24"
+            android:drawableStart="@drawable/ic_baseline_mail_outline_24"
             android:background="@android:color/transparent"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -63,7 +62,29 @@
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="345dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:cardElevation="10dp">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+            android:background="@android:color/transparent"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textSize="20sp"/>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,10 +98,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnAdminLogin"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
-        android:text="Go back to login?"/>
+        android:text="Login as admin?"/>
 
     <ImageButton
         android:layout_width="56dp"
@@ -89,7 +110,7 @@
         android:layout_alignParentEnd="true"
         android:background="@drawable/button_bg"
         android:layout_margin="16dp"
-        android:id="@+id/btnReset"
+        android:id="@+id/btnLogin"
         android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
         />
 
