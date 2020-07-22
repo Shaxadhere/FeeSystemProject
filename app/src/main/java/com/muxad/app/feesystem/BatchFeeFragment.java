@@ -1,5 +1,6 @@
 package com.muxad.app.feesystem;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +8,60 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BatchFeeFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BatchFeeFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public BatchFeeFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BatchFeeFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static BatchFeeFragment newInstance(String param1, String param2) {
-        BatchFeeFragment fragment = new BatchFeeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    View v;
+    ListView listView;
+    String[] fruitNames = {"Apple","Orange","Kiwi","Passion","Banana"};
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        v = inflater.inflate(R.layout.fragment_batch_fee, container, false);
+        listView = (ListView) v.findViewById(R.id.batch_list);
+        CustomAdapter customAdapter = new CustomAdapter();
+        listView.setAdapter(customAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ////////////////////////////////////////////////////////////////
+                ////////////////////////////////////////////////////////////////
+                ///////////////do some this duh/////////////////////////////////
+                ////////////////////////////////////////////////////////////////
+            }
+        });
+        return v;
+    }
+
+    private class CustomAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return fruitNames.length;
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_batch_fee, container, false);
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            View view1 = getLayoutInflater().inflate(R.layout.batch_row,null);
+            //getting view in row_data
+            TextView name = view1.findViewById(R.id.fruits);
+
+            name.setText(fruitNames[i]);
+            return view1;
+        }
     }
 }

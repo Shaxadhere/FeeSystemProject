@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView ForgetPassword;
     TextView AdminLogin;
     ImageView Backwards;
+    TextView Error;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         ForgetPassword = findViewById(R.id.btnForgetPassword);
         AdminLogin = findViewById(R.id.btnAdminLogin);
         Backwards = findViewById(R.id.btnBack);
+        Error = findViewById(R.id.txtError);
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,29 +81,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void loginRequest(){
+    public void loginRequest(){
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         String url = "https://feesystemapi.000webhostapp.com/auth/login.php";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if(!response.trim().equals("Not Authenticated")){
+                //Toast.makeText(getApplicationContext(),response.trim(),Toast.LENGTH_SHORT).show();
+                if(!response.trim().equals("false")){
 
-
-                Toast.makeText(getApplicationContext(),response.trim(),Toast.LENGTH_SHORT).show();
                 //let's parse json data
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     JSONArray jsonArray = jsonObject.getJSONArray("users");
 
                     ArrayList<String> User = new ArrayList();
-                    for (int i=0;i<jsonArray.length();i++){
-                        User.add(jsonArray.getString(i));
-                    }
+
+                    User.add(jsonArray.getJSONObject(0).getString(("PK_ID")));
+                    User.add(jsonArray.getJSONObject(0).getString("Username"));
 
                     SharedPreferences.Editor editor = getSharedPreferences("USER", MODE_PRIVATE).edit();
                     editor.putInt("ID", Integer.parseInt(User.get(0)));
-                    editor.putString("Username", User.get(2));
+                    editor.putString("Username", User.get(1));
                     editor.apply();
                     Intent Login = new Intent(LoginActivity.this, HomeActivity.class);
                     LoginActivity.this.startActivity(Login);
@@ -113,21 +114,22 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
                 }
                 }else{
-                    Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_LONG);
+                    Error.setText("Invalid Credentials");
+                    //Toast.makeText(getApplicationContext(), "Invalid Credentials", Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getApplicationContext(), "error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), error.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> map = new HashMap<String, String>();
                 map.put("Username", "\'"+Username.getText().toString().trim()+"\'");
-                map.put("Password", Password.getText().toString().trim());
+                map.put("Password", "\'"+Password.getText().toString().trim()+"\'");
 
                 return map;
             }

@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fee Details"
+            android:id="@+id/txtTitle"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -88,6 +89,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="Shehzad Ahmed"
+                        android:layout_gravity="center_horizontal"
+                        android:id="@+id/txtFullName"
                         android:textColor="#424242"
                         android:textSize="21sp"
                         android:textStyle="bold" />
@@ -129,6 +132,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="EE2010B"
+                                android:id="@+id/txtBatchCode"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
 
@@ -136,6 +140,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
+                                android:id="@+id/txtStudentID"
                                 android:text="Student1049723"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -165,12 +170,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="ACCPEE PRO"
+                                android:id="@+id/txtProgramme"
                                 android:textSize="12sp"
                                 android:textStyle="bold" />
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
+                                android:id="@+id/txtSemesterName"
                                 android:text="HDSEII"
                                 android:textSize="12sp" />
 
@@ -222,6 +229,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            android:id="@+id/txtCourseStatus"
                             android:text="Currently Running" />
                     </LinearLayout>
 
@@ -276,6 +284,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
                                 android:text="140000 PKR"
+                                android:id="@+id/txtRemainingFee"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -330,6 +339,7 @@
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
                                 android:text="100000"
+                                android:id="@+id/txtPaidFee"
                                 android:textSize="14sp" />
 
                             <TextView
@@ -383,6 +393,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:maxLines="3"
+                                android:id="@+id/txtTotalFee"
                                 android:text="240000"
                                 android:textSize="14sp" />
 

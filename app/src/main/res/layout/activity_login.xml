@@ -93,6 +93,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="415dp"
         android:layout_marginStart="20dp"
+        android:textColor="@color/red"
+        android:id="@+id/txtError"
+        android:text=""/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="20dp"
         android:id="@+id/btnForgetPassword"
         android:text="Forgot Password?"/>
 
